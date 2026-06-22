@@ -19,6 +19,22 @@ class Player():
         keys = pygame.key.get_pressed() # a function that can detect the keys that are pressed 
         if keys[pygame.K_w]: # This is in
             dx += speed_cos
+            dy += speed_sin
+        if keys[pygame.K_s]:
+            dx += -speed_cos
+            dy += -speed_sin
+        if keys[pygame.K_a]:
+            dx += speed_cos
+            dy += -speed_sin
+        if keys[pygame.K_d]:
+            dx += -speed_sin
+            dy += speed_cos
+
+        self.x += dx
+        self.y += dy
+
+        if keys[pygame.K_LEFT]:
+            self.angle -= PLAYER_ROT_SPEED * self.game.delta_time
 
 
 

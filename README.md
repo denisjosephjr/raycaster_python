@@ -3,4 +3,4 @@ Python.
 
 Link: https://youtu.be/ECqUrT7IdqQ?si=rajDa02CVL7eLHh7
 
-Current Time Stamp: 6:18
+Current Time Stamp: 6:31

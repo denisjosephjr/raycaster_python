@@ -39,7 +39,12 @@ class Player():
             self.angle -= PLAYER_ROT_SPEED * self.game.delta_time
         if keys[pygame.K_RIGHT]:
             self.angle += PLAYER_ROT_SPEED * self.game.delta_time
+        self.angle %= math.tau # self.angle = self.angle % math.tau 
+                               # (math.tau == 2 * pi)
 
+    def draw(self):
+        pygame.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
+                        (self.x * 100 + WIDTH * math.cos(self.angle),
 
     def update(self):
         self.movement()

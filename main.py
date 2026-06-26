@@ -1,20 +1,30 @@
 import pygame # Looking forward to using this module
-import sys # This module is still a mystery to me. It is for system specific parameters and function/ interpreter interaction.
 
-from settings import * # What the hell is the pound symbol supposed to be?
-# The pound symbol allows the import of all objects in the module without using dot notation. Risky..
+import sys # This module is still a mystery to me. It is for system specific 
+           # parameters and function/ interpreter interaction.
+
+from settings import * # The pound symbol allows the import of all objects in the
+                       # module without using dot notation. Risky..
+
 from map import *
+
+from player import *
+
 
 class Game():
     def __init__(self):
-        pygame.init() # Strange, to have to call init() in another module. We'll see..
-        self.screen = pygame.display.set_mode(RES)
-        self.clock = pygame.time.Clock() # This line concerns me, i think it should be a function call, but it isn't
-        self.dela_time = 1 # delta time is the amount of time that has passed since the last frame
+        pygame.init()                               # Read Pygame Documentation
+
+        self.screen = pygame.display.set_mode(RES)  # Sets resolution to value
+                                                    # specified in settings.py
+
+        self.clock = pygame.time.Clock()            # Read Pygame Documentation
+
+        self.dela_time = 1 # Delta Time: The amount of time that has passed since the last frame.
         self.new_game()
 
-    def new_game(self): # Assuming, that I will use this later.
-        self.map = Map(self) # from the map module, creates map
+    def new_game(self): 
+        self.map = Map(self) # Creates instance of a map.
 
     def update(self):
         pygame.display.flip() # Not sure what this function does yet.

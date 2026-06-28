@@ -1,10 +1,10 @@
-import pygame # Looking forward to using this module
+import pygame 
 
-import sys # This module is still a mystery to me. It is for system specific 
-           # parameters and function/ interpreter interaction.
+import sys # This module is for system specific parameters and function/ 
+           # interpreter interaction.
 
 from settings import * # The pound symbol allows the import of all objects in the
-                       # module without using dot notation. Risky..
+                       # module without using dot notation.
 
 from map import *
 
@@ -41,17 +41,19 @@ class Game():
 
 
     def draw(self):
-        self.screen.fill('black') # blacks out the screen, probably when loading.
+        self.screen.fill('black') # Blacks out the screen, probably when loading.
         self.map.draw()
 
 
     def check_events(self):
         # Read Pygame Documentation
         for event in pygame.event.get():
-            
+    
+            # Conditional statement that exits the game if detected. 
             if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE): 
-                pygame.quit() # Conditional statement that exits the game if detected. 
+                pygame.quit() 
                 sys.exit()
+
 
     def run(self):
         while True: # The 3 methods that effectively run the game.
@@ -59,6 +61,10 @@ class Game():
             self.update()
             self.draw()
 
-if __name__ == '__main__': # __name__ is a variable that holds the module name.
+
+# __name__ is a variable that holds the module name. Modules run automatically so
+# this conditional statement is needed to prevent main.py from running if another
+# module is ran as the primary file. (Research some more.)
+if __name__ == '__main__': 
     game = Game()
-    game.run()  # but... the interpreter assigns the name '__main__' if it is the primary module running (not the actual file name)
+    game.run()  

@@ -22,16 +22,18 @@ class Game():
 
         self.clock = pygame.time.Clock()            # Read Pygame Documentation
 
-        self.dela_time = 1 # Delta Time: The amount of time that has passed since
+        self.delta_time = 1 # Delta Time: The amount of time that has passed since
                            # the last frame. What unit?
         self.new_game()
 
 
     def new_game(self): 
         self.map = Map(self) # Creates instance of a map.
+        self.player = Player(self)
 
 
     def update(self):
+        self.player.update()
         pygame.display.flip() # Read Pygame Documentation
 
         self.delta_time = self.clock.tick(FPS)    # Read Pygame Documentation 
@@ -43,7 +45,7 @@ class Game():
     def draw(self):
         self.screen.fill('black') # Blacks out the screen, probably when loading.
         self.map.draw()
-
+        self.player.draw()
 
     def check_events(self):
         # Read Pygame Documentation

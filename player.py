@@ -51,7 +51,7 @@ class Player():
     def update(self):
         self.movement()
     
-                         @property # This is called a decorator and modifies function behavior.
+    @property # This is called a decorator and modifies function behavior.
     def pos(self): # "@property" is a built in decorator that comes with Python
         return self.x, self.y
 

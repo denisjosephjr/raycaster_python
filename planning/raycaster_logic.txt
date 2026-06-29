@@ -1,0 +1,2 @@
+This document will be used to understand the math behind raycasting 
+(Trigonometry).

@@ -1,1 +1,5 @@
-This Document will be used to learn about how PyGame works. (It is based off of SDL)
+This Document will be used to learn about how PyGame works. (It is based off of 
+SDL)
+
+pygame.init() -- initializes all PyGame submodules so they are ready for use.
+

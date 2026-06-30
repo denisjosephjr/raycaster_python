@@ -41,6 +41,9 @@ class Player():
             self.angle += PLAYER_ROT_SPEED * self.game.delta_time
         self.angle %= math.tau # self.angle = self.angle % math.tau 
                                # (math.tau == 2 * pi)
+ 
+    def check_wall(self, x, y):
+        return (x, y) not in self.game.map.world_map
 
     def draw(self):
         pygame.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),

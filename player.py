@@ -32,8 +32,10 @@ class Player():
             dx += -speed_sin
             dy += speed_cos
 
-        self.x += dx
-        self.y += dy
+        # self.x += dx
+        # self.y += dy
+        self.check_wall_collision(dx, dy) # This method now increments player 
+                                          # movement with respect to bounds.
 
         if keys[pygame.K_LEFT]:
             self.angle -= PLAYER_ROT_SPEED * self.game.delta_time
@@ -42,8 +44,17 @@ class Player():
         self.angle %= math.tau # self.angle = self.angle % math.tau 
                                # (math.tau == 2 * pi)
  
+
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
+        # Never seen this return syntax before, test in seperate file.
+
+    def check_wall_collision(self, dx, dy):
+        if self.check_wall(int(self.x + dx), int(self.y)):
+            self.x += dx
+        if self.check_wall(int(self.x), int(self.y + dy)):
+            self.y += dy
+
 
     def draw(self):
         pygame.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
